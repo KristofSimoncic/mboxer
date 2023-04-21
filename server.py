@@ -151,10 +151,11 @@ def message_to_dictionary(message):
 
 # Vytvori sa socket z danou ip adresou a portovacim cislom a pocuva
 HOST = '127.0.0.1'
-PORT = 64659
+PORT = 9999
 
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server_address = (HOST, PORT)
+server_socket.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEADDR,1)
 server_socket.bind(server_address)
 server_socket.listen(5)
 
